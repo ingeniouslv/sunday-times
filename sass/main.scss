@@ -1,9 +1,63 @@
+/* mixins */
+@mixin transition($duration) {
+	-webkit-transition: all $duration;
+	-ms-transition: all $duration;
+	-moz-transition: all $duration;
+	transition: all $duration;
+}
 
+/* Preloader */
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
+#preloader {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	#loadWave {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.form-control { 
+		border: 0;
+		background: transparent;
+	}
+	.logo {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		text-align: center;
+		width: 100%;
+		top: 30%;
+		@include transition(0.4s);
+		img {
+			width: 300px;
+			max-width: 80%;
+			height: auto;
+			margin: auto;
+			@include transition(all 0.4s);
+			&.small {
+				width: 250px;
+			}
+		}
+		.rsvp,
+		.copy {
+			visibility: hidden;
+			opacity: 0;
+			@include transition(2s);
+			&.visible {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+	}
+}
 
 
 
