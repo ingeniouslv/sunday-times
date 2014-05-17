@@ -1,35 +1,33 @@
 $(window).load(function() {
 	removePreloader();
-	loadItems();
-});
-
-$(function() {
-	
 });
 
 function removePreloader() {
-	$('#preloader .dark').delay(1800).addClass('small');
+	$('#preloader').delay(800).fadeOut(1000);
 }
 
-function loadItems() {
-	$('.copy').delay(1800).addClass('visible');
-	$('.rsvp').delay(2800).addClass('visible');
-}
+$('#mce-EMAIL').focusin(function() {
+	$('.rsvp').toggleClass('active');	
+});
+
+$('#mce-EMAIL').focusout(function() {
+	$('.rsvp').toggleClass('active');	
+});
 
 $('#rsvp').ajaxChimp({
-	callback: submitCallback
+	callback: submitCallback,
+	url: 'http://sundaytimeslv.us8.list-manage1.com/subscribe/post?u=f1bf2d730706bab736654d145&id=19dd4cb8ef'
 });
 
 // submit function
 function submitCallback (resp) {
     if (resp.result === 'success') {
     	$('#result').html("Got it, you've been added to our email list.").css('color', 'green');
-    	closeDialog();
+    	$('#rsvp').fadeOut();
     } else {
 	    $('#result').html('Sorry, an error occurred.').css('color', 'red');
     }
 }
-
 
 /* Preloader Wave */
 var c = document.getElementById('loadWave'),
@@ -169,3 +167,19 @@ while(i--){
 window.requestAnimFrame=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(a){window.setTimeout(a,1E3/60)}}();
 
 loop();
+
+
+
+/* equalizer */
+(function() {
+  var animation = document.querySelector('.equalizer');
+  
+  function onAnimation( evt ) {
+    evt.stopPropagation();
+  }
+  
+  animation.addEventListener('webkitAnimationStart', onAnimation, false);
+  animation.addEventListener('webkitAnimationIteration', onAnimation, false);
+  animation.addEventListener('animationStart', onAnimation, false);
+  animation.addEventListener('animationIteration', onAnimation, false);
+}());
