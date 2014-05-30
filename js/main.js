@@ -2,6 +2,10 @@ $(window).load(function() {
 	removePreloader();
 });
 
+$(document).ready(function() {
+	$('body').stellar();
+});
+
 function removePreloader() {
 	$('#preloader').delay(800).fadeOut(1000);
 }
@@ -171,6 +175,7 @@ loop();
 
 
 /* equalizer */
+/*
 (function() {
   var animation = document.querySelector('.equalizer');
   
@@ -183,3 +188,4 @@ loop();
   animation.addEventListener('animationStart', onAnimation, false);
   animation.addEventListener('animationIteration', onAnimation, false);
 }());
+*/
