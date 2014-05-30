@@ -109,7 +109,11 @@ body {
 
 /* header flyer */
 #flyer {
+
+	background: url(../img/st_background.jpg); 
+	background-size: cover;
 	color: #fff;
+	
 	h1, h3, h4, h5, h6 {
 		font-family: 'BentonModDisp', serif;
 	}
@@ -123,7 +127,7 @@ body {
 	}
 	h2 {
 		font-size: 4rem;
-		margin: 0;
+		margin: 15px 0;
 	}
 	h3 {
 		font-size: 8rem;
